@@ -6,14 +6,16 @@ public class PlayerMovement : MonoBehaviour
 {
     public List<Collider2D> inHitRange;
     private Rigidbody2D rb;
-    private int drills;
+    [SerializeField] int drills;
     [SerializeField] float playerSpeed;
+    [SerializeField] private GameObject text;
+    private float lastMine;
     // Start is called before the first frame update
     void Start()
     {
-        drills = 3;
         rb = gameObject.GetComponent<Rigidbody2D>();
         Physics.gravity = Vector3.zero;
+        lastMine = Time.time;
     }
 
     // Update is called once per frame
