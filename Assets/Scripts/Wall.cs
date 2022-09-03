@@ -5,7 +5,7 @@ using UnityEngine;
 public class Wall : MonoBehaviour
 {
     public bool drilling;
-    public hide(bool hide){
+    public void Hide(bool hide){
         this.SetActive(hide); 
     }
 
