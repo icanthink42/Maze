@@ -48,8 +48,6 @@ public class PlayerMovement : MonoBehaviour
             {
                 text.GetComponent<TextAnimation>().ShowErrorText("Out of Drills!");
             }
-            
-            
         }
     }
 
