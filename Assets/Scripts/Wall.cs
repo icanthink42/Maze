@@ -6,11 +6,11 @@ public class Wall : MonoBehaviour
 {
     public bool drilling;
     public void Hide(bool hide){
-        this.SetActive(hide); 
+        gameObject.SetActive(hide); 
     }
 
     void OnCollisionEnter(Collision collision){
-        this.SetActive(drilling);
+        gameObject.SetActive(drilling);
     }
 
     // Start is called before the first frame update
