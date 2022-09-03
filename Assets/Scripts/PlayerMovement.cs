@@ -6,10 +6,12 @@ public class PlayerMovement : MonoBehaviour
 {
     public List<Collider2D> inHitRange;
     private Rigidbody2D rb;
+    private int drills;
     [SerializeField] float playerSpeed;
     // Start is called before the first frame update
     void Start()
     {
+        drills = 3;
         rb = gameObject.GetComponent<Rigidbody2D>();
         Physics.gravity = Vector3.zero;
     }
@@ -20,7 +22,7 @@ public class PlayerMovement : MonoBehaviour
         float dx = playerSpeed * Input.GetAxis ("Horizontal") * Time.fixedDeltaTime;
         float dy = playerSpeed * Input.GetAxis ("Vertical") * Time.fixedDeltaTime;
         rb.velocity = new Vector2(dx, dy);
-        if (Input.GetKey(KeyCode.Space) && inHitRange.Count != 0)
+        if (Input.GetKey(KeyCode.Space) && inHitRange.Count != 0 && drills>0)
         {
             Collider2D closest = inHitRange[0];
             foreach (Collider2D t in inHitRange)
@@ -31,10 +33,11 @@ public class PlayerMovement : MonoBehaviour
                 }
             }
             closest.gameObject.GetComponent<Renderer>().enabled = false; //stops rendering the sprite
-            
+
             // remove collision (could just remove collision attrubute
             // but I don't think the object should be continued to render when its destroyed)
             Destroy (closest); 
+            drills--;
             
         }
     }
