@@ -4,21 +4,22 @@ using UnityEngine;
 
 public class PlayerTrigger : MonoBehaviour
 {
-    public List<Collider2D> inHitRange = new List<Collider2D>();
+    public GameObject player;
+    PlayerMovement pm;
     void OnTriggerEnter2D(Collider2D other){
         if (other.transform.tag == "breakable")
             return;
-        inHitRange.Add(other);
+        pm.inHitRange.Add(other);
     }
 
     void OnTriggerExit2D(Collider2D other){
-        inHitRange.Remove(other);
+        pm.inHitRange.Remove(other);
     }
     
     // Start is called before the first frame update
     void Start()
     {
-        
+        pm = player.GetComponent<PlayerMovement>();
     }
 
     // Update is called once per frame
