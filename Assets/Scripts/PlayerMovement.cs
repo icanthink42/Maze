@@ -59,15 +59,15 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D col)
     {
-        if (lastTeleport + 0.2 > Time.time)
+        if (lastTeleport + 0.2 < Time.time)
         {
-            return;
+            HoleTpManager hm = col.gameObject.GetComponent<HoleTpManager>();
+            if (hm != null)
+            {
+                transform.position = hm.endLocation.position;
+                lastTeleport = Time.time;
+            }
         }
-        HoleTpManager hm = col.gameObject.GetComponent<HoleTpManager>();
-        if (hm != null)
-        {
-            transform.position = hm.endLocation.position;
-            lastTeleport = Time.time;
-        }
+       
     }
 }   
