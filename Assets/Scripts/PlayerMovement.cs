@@ -1,6 +1,8 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Timeline;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -9,13 +11,17 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] int drills;
     [SerializeField] float playerSpeed;
     [SerializeField] private GameObject text;
+    [SerializeField] GameObject fade;
     private float lastMine;
+
+    private float lastTeleport;
     // Start is called before the first frame update
     void Start()
     {
         rb = gameObject.GetComponent<Rigidbody2D>();
         Physics.gravity = Vector3.zero;
         lastMine = Time.time;
+        lastTeleport = Time.time;
     }
 
     // Update is called once per frame
@@ -51,4 +57,17 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    private void OnTriggerEnter2D(Collider2D col)
+    {
+        if (lastTeleport + 0.2 > Time.time)
+        {
+            return;
+        }
+        HoleTpManager hm = col.gameObject.GetComponent<HoleTpManager>();
+        if (hm != null)
+        {
+            transform.position = hm.endLocation.position;
+            lastTeleport = Time.time;
+        }
+    }
 }   
