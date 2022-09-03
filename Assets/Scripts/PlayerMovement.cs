@@ -24,22 +24,31 @@ public class PlayerMovement : MonoBehaviour
         float dx = playerSpeed * Input.GetAxis ("Horizontal") * Time.fixedDeltaTime;
         float dy = playerSpeed * Input.GetAxis ("Vertical") * Time.fixedDeltaTime;
         rb.velocity = new Vector2(dx, dy);
-        if (Input.GetKey(KeyCode.Space) && inHitRange.Count != 0 && drills>0)
+        if (Input.GetKey(KeyCode.Space) && inHitRange.Count != 0 && Time.time > lastMine + 0.5)
         {
-            Collider2D closest = inHitRange[0];
-            foreach (Collider2D t in inHitRange)
+            lastMine = Time.time;
+            if (drills > 0)
             {
-                if (Vector2.Distance(transform.position,t.transform.position) < Vector2.Distance(transform.position, closest.transform.position))
+                Collider2D closest = inHitRange[0];
+                foreach (Collider2D t in inHitRange)
                 {
-                    closest = t;
+                    if (Vector2.Distance(transform.position,t.transform.position) < Vector2.Distance(transform.position, closest.transform.position))
+                    {
+                        closest = t;
+                    }
                 }
-            }
-            closest.gameObject.GetComponent<Renderer>().enabled = false; //stops rendering the sprite
+                closest.gameObject.GetComponent<Renderer>().enabled = false; //stops rendering the sprite
 
-            // remove collision (could just remove collision attrubute
-            // but I don't think the object should be continued to render when its destroyed)
-            Destroy (closest); 
-            drills--;
+                // remove collision (could just remove collision attrubute
+                // but I don't think the object should be continued to render when its destroyed)
+                Destroy (closest); 
+                drills--;
+            }
+            else
+            {
+                text.GetComponent<TextAnimation>().ShowErrorText("Out of Drills!");
+            }
+            
             
         }
     }
