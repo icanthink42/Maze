@@ -8,6 +8,7 @@ public class Plant : MonoBehaviour
     void OnTriggerEnter2D(Collider2D other){
         if (other.transform.CompareTag("player")){
             text.GetComponent<TextAnimation>().ShowErrorText("Level Complete!");
+            Application.LoadScene("TestingScene"); 
         }
             
     }
