@@ -2,14 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class playertrigger : MonoBehaviour
+public class PlayerTrigger : MonoBehaviour
 {
-    private List<Collision> inHitRange = new List<Collision>();
-    void OnCollisionEnter(Collision other){
+    public List<Collider2D> inHitRange = new List<Collider2D>();
+    void OnTriggerEnter2D(Collider2D other){
+        if (other.transform.tag == "breakable")
+            return;
         inHitRange.Add(other);
     }
 
-    void OnCollisionExit(Collision other){
+    void OnTriggerExit2D(Collider2D other){
         inHitRange.Remove(other);
     }
     
@@ -22,6 +24,5 @@ public class playertrigger : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
     }
 }
