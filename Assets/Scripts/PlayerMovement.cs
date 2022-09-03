@@ -16,13 +16,23 @@ public class PlayerMovement : MonoBehaviour
 
     // Update is called once per frame
     void FixedUpdate()
-    {   
-        float x = playerSpeed * Input.GetAxis ("Horizontal") * Time.fixedDeltaTime;
-        float y = playerSpeed * Input.GetAxis ("Vertical") * Time.fixedDeltaTime;
-        rb.velocity = new Vector2(x, y);
-        if (Input.GetKey("jump")){
-            
+    {
+        print(inHitRange);
+        float dx = playerSpeed * Input.GetAxis ("Horizontal") * Time.fixedDeltaTime;
+        float dy = playerSpeed * Input.GetAxis ("Vertical") * Time.fixedDeltaTime;
+        rb.velocity = new Vector2(dx, dy);
+        if (Input.GetKey(KeyCode.Space) && inHitRange.Count != 0)
+        {
+            Collider2D closest = inHitRange[0];
+            foreach (var t in inHitRange)
+            {
+                if (Vector2.Distance(transform.position,t.transform.position) < Vector2.Distance(transform.position, closest.transform.position))
+                {
+                    closest = t;
+                }
+            }
+            closest.gameObject.GetComponent<Wall>().Hide();
         }
     }
 
-}
+}   

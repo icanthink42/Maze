@@ -5,8 +5,8 @@ using UnityEngine;
 public class Wall : MonoBehaviour
 {
     public bool drilling;
-    public void Hide(bool hide){
-        gameObject.SetActive(hide); 
+    public void Hide(){
+        gameObject.SetActive(false);
     }
 
     void OnCollisionEnter(Collision collision){
