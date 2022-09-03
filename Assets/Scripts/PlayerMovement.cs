@@ -1,6 +1,8 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Timeline;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -51,4 +53,12 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    private void OnTriggerEnter2D(Collider2D col)
+    {
+        HoleTpManager hm = col.gameObject.GetComponent<HoleTpManager>();
+        if (hm != null)
+        {
+            transform.position = hm.endLocation.position;
+        }
+    }
 }   

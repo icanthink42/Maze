@@ -6,6 +6,7 @@ TagManager:
   tags:
   - breakable
   - pushable
+  - player
   layers:
   - Default
   - TransparentFX
