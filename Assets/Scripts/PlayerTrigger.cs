@@ -7,11 +7,10 @@ public class PlayerTrigger : MonoBehaviour
     public GameObject player;
     PlayerMovement pm;
     void OnTriggerEnter2D(Collider2D other){
-        if (!other.transform.CompareTag("breakable"))
+        if (other.transform.CompareTag("breakable"))
         {
-            return;
+            pm.inHitRange.Add(other);
         }
-        pm.inHitRange.Add(other);
     }
 
     void OnTriggerExit2D(Collider2D other){

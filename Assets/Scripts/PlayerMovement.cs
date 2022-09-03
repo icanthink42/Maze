@@ -17,21 +17,25 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        print(inHitRange);
         float dx = playerSpeed * Input.GetAxis ("Horizontal") * Time.fixedDeltaTime;
         float dy = playerSpeed * Input.GetAxis ("Vertical") * Time.fixedDeltaTime;
         rb.velocity = new Vector2(dx, dy);
         if (Input.GetKey(KeyCode.Space) && inHitRange.Count != 0)
         {
             Collider2D closest = inHitRange[0];
-            foreach (var t in inHitRange)
+            foreach (Collider2D t in inHitRange)
             {
                 if (Vector2.Distance(transform.position,t.transform.position) < Vector2.Distance(transform.position, closest.transform.position))
                 {
                     closest = t;
                 }
             }
-            closest.gameObject.GetComponent<Wall>().Hide();
+            closest.gameObject.GetComponent<Renderer>().enabled = false; //stops rendering the sprite
+            
+            // remove collision (could just remove collision attrubute
+            // but I don't think the object should be continued to render when its destroyed)
+            Destroy (closest); 
+            
         }
     }
 
