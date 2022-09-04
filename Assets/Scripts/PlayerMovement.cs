@@ -12,7 +12,8 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] int drills;
     [SerializeField] float playerSpeed;
     [SerializeField] private GameObject text;
-    [SerializeField] GameObject fade;
+    [SerializeField] private GameObject fade;
+    [SerializeField] private LineOfSight los;
     private float lastMine;
 
     private float lastTeleport;
@@ -28,6 +29,8 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+
+        los.points[0] = transform.position;
         float dx = playerSpeed * Input.GetAxis ("Horizontal") * Time.fixedDeltaTime;
         float dy = playerSpeed * Input.GetAxis ("Vertical") * Time.fixedDeltaTime;
         rb.velocity = new Vector2(dx, dy);

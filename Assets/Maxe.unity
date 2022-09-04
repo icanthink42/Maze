@@ -1220,6 +1220,7 @@ MonoBehaviour:
   playerSpeed: 200
   text: {fileID: 1012280757}
   fade: {fileID: 0}
+  los: {fileID: 269043941}
 --- !u!212 &1671172941
 SpriteRenderer:
   m_ObjectHideFlags: 0
