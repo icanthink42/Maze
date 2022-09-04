@@ -73,11 +73,10 @@ public class PlayerMovement : MonoBehaviour
                         closest = t;
                     }
                 }
-                closest.gameObject.GetComponent<Renderer>().enabled = false; //stops rendering the sprite
+                closest.gameObject.SetActive(false);
 
                 // remove collision (could just remove collision attrubute
                 // but I don't think the object should be continued to render when its destroyed)
-                Destroy (closest); 
                 drills--;
             }
             else
