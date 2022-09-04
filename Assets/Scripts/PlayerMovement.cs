@@ -7,7 +7,7 @@ using UnityEngine.Timeline;
 
 public class PlayerMovement : MonoBehaviour
 {
-
+    Animator animator;
     public List<Collider2D> inHitRange;
     private Rigidbody2D rb;
     [SerializeField] int drills;
@@ -21,6 +21,7 @@ public class PlayerMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        animator = gameObject.GetComponent<Animator>(); 
         rb = gameObject.GetComponent<Rigidbody2D>();
         Physics.gravity = Vector3.zero;
         lastMine = Time.time;
@@ -37,24 +38,24 @@ public class PlayerMovement : MonoBehaviour
 
         //animation
         if (dx>0){
-            Animator.MovingRight = true;
+            animator.SetBool("MovingRight", true);
         } else {
-            Animator.MovingRight = false;
+            animator.SetBool("MovingRight", false);
         }
         if (dx<0){
-            Animator.MovingLeft = true;
+            animator.SetBool("MovingLeft", true);
         } else {
-            Animator.MovingLeft = false;
+            animator.SetBool("MovingLeft", false);
         }
         if (dy>0){
-            Animator.MovingUp = true;
+            animator.SetBool("MovingUp", true);
         } else {
-            Animator.MovingUp = false;
+            animator.SetBool("MovingUp", false);
         }
         if (dy<0){
-            Animator.MovingDown = true;
+            animator.SetBool("MovingDown", true);
         } else {
-            Animator.MovingDown = false;
+            animator.SetBool("MovingDown", false);
         }
 
 

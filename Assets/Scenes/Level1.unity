@@ -14557,8 +14557,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2100153086}
-  - component: {fileID: 2100153088}
   - component: {fileID: 2100153087}
+  - component: {fileID: 2100153088}
   m_Layer: 0
   m_Name: Trigger
   m_TagString: Untagged
@@ -14594,8 +14594,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 432676876}
---- !u!58 &2100153088
-CircleCollider2D:
+--- !u!70 &2100153088
+CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -14604,12 +14604,12 @@ CircleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
+  m_IsTrigger: 0
+  m_UsedByEffector: 1
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.6
+  m_Size: {x: 3.5, y: 5}
+  m_Direction: 0
 --- !u!1001 &2103984110
 PrefabInstance:
   m_ObjectHideFlags: 0
