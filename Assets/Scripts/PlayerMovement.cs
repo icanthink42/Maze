@@ -14,10 +14,13 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] float playerSpeed;
     [SerializeField] private GameObject text;
     [SerializeField] private GameObject fade;
+    private AudioSource audio;
     // [SerializeField] private LineOfSight los;
     private float lastMine;
 
     private float lastTeleport;
+
+    [SerializeField] private AudioClip push;
     // Start is called before the first frame update
     void Start()
     {
@@ -26,6 +29,7 @@ public class PlayerMovement : MonoBehaviour
         Physics.gravity = Vector3.zero;
         lastMine = Time.time;
         lastTeleport = Time.time;
+        audio = new AudioSource();
     }
 
     // Update is called once per frame
@@ -35,6 +39,7 @@ public class PlayerMovement : MonoBehaviour
         // los.points[0] = transform.position;
         float dx = playerSpeed * Input.GetAxis ("Horizontal") * Time.fixedDeltaTime;
         float dy = playerSpeed * Input.GetAxis ("Vertical") * Time.fixedDeltaTime;
+
 
         //animation
         if (dx>0){
@@ -103,5 +108,14 @@ public class PlayerMovement : MonoBehaviour
             }
         }
        
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.transform.CompareTag("pushable"))
+        {
+            audio.clip = push;
+            audio.Play();
+        }
     }
 }   
