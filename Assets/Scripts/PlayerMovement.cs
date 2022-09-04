@@ -7,19 +7,21 @@ using UnityEngine.Timeline;
 
 public class PlayerMovement : MonoBehaviour
 {
+    Animator animator;
     public List<Collider2D> inHitRange;
     private Rigidbody2D rb;
     [SerializeField] int drills;
     [SerializeField] float playerSpeed;
     [SerializeField] private GameObject text;
     [SerializeField] private GameObject fade;
-    [SerializeField] private LineOfSight los;
+    // [SerializeField] private LineOfSight los;
     private float lastMine;
 
     private float lastTeleport;
     // Start is called before the first frame update
     void Start()
     {
+        animator = gameObject.GetComponent<Animator>(); 
         rb = gameObject.GetComponent<Rigidbody2D>();
         Physics.gravity = Vector3.zero;
         lastMine = Time.time;
@@ -33,6 +35,30 @@ public class PlayerMovement : MonoBehaviour
         // los.points[0] = transform.position;
         float dx = playerSpeed * Input.GetAxis ("Horizontal") * Time.fixedDeltaTime;
         float dy = playerSpeed * Input.GetAxis ("Vertical") * Time.fixedDeltaTime;
+
+        //animation
+        if (dx>0){
+            animator.SetBool("MovingRight", true);
+        } else {
+            animator.SetBool("MovingRight", false);
+        }
+        if (dx<0){
+            animator.SetBool("MovingLeft", true);
+        } else {
+            animator.SetBool("MovingLeft", false);
+        }
+        if (dy>0){
+            animator.SetBool("MovingUp", true);
+        } else {
+            animator.SetBool("MovingUp", false);
+        }
+        if (dy<0){
+            animator.SetBool("MovingDown", true);
+        } else {
+            animator.SetBool("MovingDown", false);
+        }
+
+
         rb.velocity = new Vector2(dx, dy);
         if (Input.GetKey(KeyCode.Space) && inHitRange.Count != 0 && Time.time > lastMine + 0.5)
         {
