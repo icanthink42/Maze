@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class SimpleView : MonoBehaviour
 {
@@ -19,12 +21,17 @@ public class SimpleView : MonoBehaviour
         GameObject[] allObjects = UnityEngine.Object.FindObjectsOfType<GameObject>() ;
         foreach (var obj in allObjects)
         {
-            if (obj.transform.CompareTag("player"))
+            if (obj.transform.CompareTag("player") || obj.transform.CompareTag("nohide"))
             {
                 continue;
             }
             SpriteRenderer sr = obj.GetComponent<SpriteRenderer>();
             if (sr == null)
+            {
+                continue;
+            }
+
+            if (!gameObject.activeSelf)
             {
                 continue;
             }
