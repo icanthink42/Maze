@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.Timeline;
 
 public class PlayerMovement : MonoBehaviour
@@ -54,6 +55,11 @@ public class PlayerMovement : MonoBehaviour
             {
                 text.GetComponent<TextAnimation>().ShowErrorText("Out of Drills!");
             }
+        }
+
+        if (Input.GetKey(KeyCode.R))
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
     }
 

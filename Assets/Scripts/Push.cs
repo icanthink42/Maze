@@ -29,6 +29,11 @@ public class Push : MonoBehaviour
         {
             transform.position = target;
         }
+
+        if (!touchingPlayer)
+        {
+            rb.velocity = Vector2.zero;
+        }
     }
 
 
