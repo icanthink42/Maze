@@ -7,13 +7,14 @@ using UnityEngine.Timeline;
 
 public class PlayerMovement : MonoBehaviour
 {
+
     public List<Collider2D> inHitRange;
     private Rigidbody2D rb;
     [SerializeField] int drills;
     [SerializeField] float playerSpeed;
     [SerializeField] private GameObject text;
     [SerializeField] private GameObject fade;
-    [SerializeField] private LineOfSight los;
+    // [SerializeField] private LineOfSight los;
     private float lastMine;
 
     private float lastTeleport;
@@ -33,6 +34,30 @@ public class PlayerMovement : MonoBehaviour
         // los.points[0] = transform.position;
         float dx = playerSpeed * Input.GetAxis ("Horizontal") * Time.fixedDeltaTime;
         float dy = playerSpeed * Input.GetAxis ("Vertical") * Time.fixedDeltaTime;
+
+        //animation
+        if (dx>0){
+            Animator.MovingRight = true;
+        } else {
+            Animator.MovingRight = false;
+        }
+        if (dx<0){
+            Animator.MovingLeft = true;
+        } else {
+            Animator.MovingLeft = false;
+        }
+        if (dy>0){
+            Animator.MovingUp = true;
+        } else {
+            Animator.MovingUp = false;
+        }
+        if (dy<0){
+            Animator.MovingDown = true;
+        } else {
+            Animator.MovingDown = false;
+        }
+
+
         rb.velocity = new Vector2(dx, dy);
         if (Input.GetKey(KeyCode.Space) && inHitRange.Count != 0 && Time.time > lastMine + 0.5)
         {
