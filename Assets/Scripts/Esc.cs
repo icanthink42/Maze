@@ -9,7 +9,6 @@ public class Esc : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            UnityEditor.EditorApplication.isPlaying = false;
             Application.Quit();
         }
     }
