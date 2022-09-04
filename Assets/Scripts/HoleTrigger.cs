@@ -7,10 +7,8 @@ public class HoleTrigger : MonoBehaviour
     public GameObject hole;
     void OnTriggerEnter2D (Collider2D other){
         if (other.transform.CompareTag("pushable")){
-            other.gameObject.GetComponent<Renderer>().enabled = false;
-            Destroy(other);
-            hole.GetComponent<Renderer>().enabled = false;
-            Destroy(hole);
+            other.gameObject.SetActive(false);
+            hole.SetActive(false);
         }
     }
     // Start is called before the first frame update

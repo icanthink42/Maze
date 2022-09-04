@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -26,6 +27,11 @@ public class SimpleView : MonoBehaviour
             }
             SpriteRenderer sr = obj.GetComponent<SpriteRenderer>();
             if (sr == null)
+            {
+                continue;
+            }
+
+            if (!gameObject.activeSelf)
             {
                 continue;
             }
