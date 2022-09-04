@@ -20,8 +20,7 @@ public class Push : MonoBehaviour
     void FixedUpdate()
     {
         float dist = Vector3.Distance(transform.position, target);
-        if (dist != 0)
-            print(dist);
+        
         if (dist > 0.03 && dist < 0.5 && rb.velocity.magnitude > 0 && !touchingPlayer)
         {
             transform.position = Vector3.Lerp(transform.position, target, 0.8f);
