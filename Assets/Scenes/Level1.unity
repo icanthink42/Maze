@@ -574,7 +574,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8607085532649425386, guid: f92f66833509716c49ded1eda4676397, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 8607085532649425386, guid: f92f66833509716c49ded1eda4676397, type: 3}
       propertyPath: m_LocalPosition.z
@@ -6663,15 +6663,15 @@ PrefabInstance:
       objectReference: {fileID: 21300000, guid: aac02ea0f0a750f48968aeb002e5b1de, type: 3}
     - target: {fileID: 2537283722252907598, guid: daf4629d712e96eac9720c8d2e7df358, type: 3}
       propertyPath: m_Color.b
-      value: 0.735849
+      value: 0.5471698
       objectReference: {fileID: 0}
     - target: {fileID: 2537283722252907598, guid: daf4629d712e96eac9720c8d2e7df358, type: 3}
       propertyPath: m_Color.g
-      value: 0.735849
+      value: 0.5471698
       objectReference: {fileID: 0}
     - target: {fileID: 2537283722252907598, guid: daf4629d712e96eac9720c8d2e7df358, type: 3}
       propertyPath: m_Color.r
-      value: 0.735849
+      value: 0.5471698
       objectReference: {fileID: 0}
     - target: {fileID: 2537283722252907599, guid: daf4629d712e96eac9720c8d2e7df358, type: 3}
       propertyPath: m_Name
@@ -10616,7 +10616,7 @@ SpriteRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1545766771}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
@@ -10833,15 +10833,15 @@ PrefabInstance:
       objectReference: {fileID: 21300000, guid: aac02ea0f0a750f48968aeb002e5b1de, type: 3}
     - target: {fileID: 2537283722252907598, guid: daf4629d712e96eac9720c8d2e7df358, type: 3}
       propertyPath: m_Color.b
-      value: 0.6792453
+      value: 0.54901963
       objectReference: {fileID: 0}
     - target: {fileID: 2537283722252907598, guid: daf4629d712e96eac9720c8d2e7df358, type: 3}
       propertyPath: m_Color.g
-      value: 0.6792453
+      value: 0.54901963
       objectReference: {fileID: 0}
     - target: {fileID: 2537283722252907598, guid: daf4629d712e96eac9720c8d2e7df358, type: 3}
       propertyPath: m_Color.r
-      value: 0.6792453
+      value: 0.54901963
       objectReference: {fileID: 0}
     - target: {fileID: 2537283722252907599, guid: daf4629d712e96eac9720c8d2e7df358, type: 3}
       propertyPath: m_Name
@@ -13191,15 +13191,15 @@ PrefabInstance:
       objectReference: {fileID: 21300000, guid: aac02ea0f0a750f48968aeb002e5b1de, type: 3}
     - target: {fileID: 2537283722252907598, guid: daf4629d712e96eac9720c8d2e7df358, type: 3}
       propertyPath: m_Color.b
-      value: 0.735849
+      value: 0.54901963
       objectReference: {fileID: 0}
     - target: {fileID: 2537283722252907598, guid: daf4629d712e96eac9720c8d2e7df358, type: 3}
       propertyPath: m_Color.g
-      value: 0.735849
+      value: 0.54901963
       objectReference: {fileID: 0}
     - target: {fileID: 2537283722252907598, guid: daf4629d712e96eac9720c8d2e7df358, type: 3}
       propertyPath: m_Color.r
-      value: 0.735849
+      value: 0.54901963
       objectReference: {fileID: 0}
     - target: {fileID: 2537283722252907599, guid: daf4629d712e96eac9720c8d2e7df358, type: 3}
       propertyPath: m_Name
