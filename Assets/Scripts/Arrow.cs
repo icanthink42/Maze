@@ -16,6 +16,6 @@ public class Arrow : MonoBehaviour
     void Update()
     {
         float angle = Mathf.Atan2(player.position.y - target.position.y, player.position.x - target.position.x);
-        transform.rotation = Quaternion.Euler(0, 0, angle);
+        transform.rotation = Quaternion.Euler(0, 0, angle*180/Mathf.PI - 180);
     }
 }

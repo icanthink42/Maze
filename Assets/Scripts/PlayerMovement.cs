@@ -30,7 +30,7 @@ public class PlayerMovement : MonoBehaviour
     void FixedUpdate()
     {
 
-        los.points[0] = transform.position;
+        // los.points[0] = transform.position;
         float dx = playerSpeed * Input.GetAxis ("Horizontal") * Time.fixedDeltaTime;
         float dy = playerSpeed * Input.GetAxis ("Vertical") * Time.fixedDeltaTime;
         rb.velocity = new Vector2(dx, dy);
