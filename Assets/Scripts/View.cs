@@ -45,7 +45,7 @@ public class View : MonoBehaviour
             tris.Add(0);
             tris.Add(i);
             tris.Add(i + 1);
-            if (r.collider == null)
+            if (r.collider == null || true)
             {
                 vertices[i] = vision_range * vector + vertices[0];
             }
